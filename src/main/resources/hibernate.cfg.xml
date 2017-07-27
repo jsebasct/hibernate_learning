@@ -35,7 +35,7 @@
 		<property name="show_sql">true</property>
 
 		<!-- Drop and recreate the database scheme on startup -->
-        <property name="hbm2ddl.auto">create-drop</property>
+        <property name="hbm2ddl.auto">create</property>
 
 		<!-- onta el hbm pkg. -->
         <!--<mapping resource="entities/auto.hbm.xml" />-->
