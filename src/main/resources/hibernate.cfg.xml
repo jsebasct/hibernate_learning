@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration
+        PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database Connection Settings -->
+		<property name="hibernate.connection.driver_class">
+			org.postgresql.Driver
+		</property>
+		
+		<property name="hibernate.connection.url">
+			jdbc:postgresql://localhost:5432/hibernatedb
+		</property>
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">root</property>
+
+
+		<!-- JDBC connection pool -->
+		<property name="connection.pool_size">1</property>
+		
+		
+		<!-- SQL Dialect -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+                
+		<!-- Disable second level cache -->
+		<property name="cache.provider_class">org.hibernate.dialect.NoCacheProvider</property>                
+                
+        <!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">true</property>
+
+		<!-- Drop and recreate the database scheme on startup -->
+        <property name="hbm2ddl.auto">create-drop</property>
+
+		<!-- onta el hbm pkg. -->
+        <!--<mapping resource="entities/auto.hbm.xml" />-->
+        <mapping class="people.hiber.dto.UserDetails" />
+                
+                
+                
+	</session-factory>
+</hibernate-configuration>
