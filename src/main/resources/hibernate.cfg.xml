@@ -40,7 +40,7 @@
 		<!-- onta el hbm pkg. -->
         <!--<mapping resource="entities/auto.hbm.xml" />-->
         <mapping class="people.hiber.dto.UserDetails" />
-                
+        <mapping class="people.hiber.dto.BankAccount" />
                 
                 
 	</session-factory>

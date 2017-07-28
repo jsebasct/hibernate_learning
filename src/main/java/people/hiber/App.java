@@ -1,13 +1,12 @@
 package people.hiber;
 
-import java.util.Date;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import people.hiber.dto.Address;
+import people.hiber.dto.BankAccount;
 import people.hiber.dto.UserDetails;
 
 /**
@@ -32,6 +31,16 @@ public class App
     	address.setState("someState");
     	
     	ud.setAddress(address);
+    	
+    	
+    	BankAccount ac1 = new BankAccount();
+    	ac1.setNumber(123456);
+    	BankAccount ac2 = new BankAccount();
+    	ac2.setNumber(234567);
+    	
+    	ud.getAccounts().add(ac1);
+    	ud.getAccounts().add(ac2);
+    	
     	// create a session factory
     	
 //    	UserDetails ud2 = new UserDetails();
@@ -49,6 +58,11 @@ public class App
     	
     	// transaction
     	session.beginTransaction();
+    	
+    	// a mi me tira error pero no a los del video
+//    	session.save(ac1);
+//    	session.save(ac2);
+    	
     	session.save(ud);
 //    	session.save(ud2);
     	session.getTransaction().commit();
