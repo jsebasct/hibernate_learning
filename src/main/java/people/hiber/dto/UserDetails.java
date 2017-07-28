@@ -1,13 +1,11 @@
 package people.hiber.dto;
 
-import java.util.Date;
-
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "USER_DETAILS")
@@ -15,17 +13,20 @@ public class UserDetails {
 
 	@Id
 	@Column(name = "USER_ID")
+	@GeneratedValue
 	private int userId;
 
 	@Column(name = "USER_NAME")
 	private String userName;
 
-	@Temporal(TemporalType.DATE)
-	private Date joinedDate;
-
-	private String address;
-
-	private String description;
+//	@Temporal(TemporalType.DATE)
+//	private Date joinedDate;
+//
+//	private String address;
+//
+//	private String description;
+	@Embedded
+	private Address address;
 
 	public int getUserId() {
 		return userId;
@@ -43,28 +44,36 @@ public class UserDetails {
 		this.userName = userName;
 	}
 
-	public Date getJoinedDate() {
-		return joinedDate;
-	}
-
-	public void setJoinedDate(Date joinedDate) {
-		this.joinedDate = joinedDate;
-	}
-
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
+//	public Date getJoinedDate() {
+//		return joinedDate;
+//	}
+//
+//	public void setJoinedDate(Date joinedDate) {
+//		this.joinedDate = joinedDate;
+//	}
+//
+//	public String getAddress() {
+//		return address;
+//	}
+//
+//	public void setAddress(String address) {
+//		this.address = address;
+//	}
+//
+//	public String getDescription() {
+//		return description;
+//	}
+//
+//	public void setDescription(String description) {
+//		this.description = description;
+//	}
 
 }
